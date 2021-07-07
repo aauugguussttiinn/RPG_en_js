@@ -18,11 +18,11 @@ class Turn {
       copyOfPlayers = copyOfPlayers.filter(function(player) {
         return player !== currentPlayer ;
       });
-      this.playerAction(players, currentPlayer)
+      this.playerChoice(players, currentPlayer);
     }
   }
 
-  playerAction(players, currentPlayer) {
+  playerChoice(players, currentPlayer) {
     let copyOfPlayers = [...players];
     let askAction = prompt('What do you want to do ? Press [X] to attack or [Y] to use your power');
     while (askAction !== "X" && askAction !== "Y") {
@@ -33,12 +33,16 @@ class Turn {
       let victim = copyOfPlayers.filter(target => {
         return target.name == askVictim ;
       })
-      console.log(`You attack ${victim}`);
-      currentPlayer.dealDamage(victim[0])
-      victim[0].takeDamage(currentPlayer)
-      console.log(victim[0].hp)
+      console.log(`${currentPlayer} attacks ${victim}`);
+      currentPlayer.dealDamage(victim[0]);
+    } else {
+      let askVictim = prompt('Write down the name of the player against who you want to use your power');
+      console.log('You choose to ');
     }
+    console.log(victim[0].hp);
+    console.log(victim[0].hp);
   }
+
 
   startTurn(turnCount, players) {
     console.log(`It is turn n°${turnCount + 1}`);
