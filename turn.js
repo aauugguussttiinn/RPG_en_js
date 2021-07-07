@@ -18,34 +18,37 @@ class Turn {
       copyOfPlayers = copyOfPlayers.filter(function(player) {
         return player !== currentPlayer ;
       });
-      this.playerChoice(players, currentPlayer);
+      this.playerTurn(players, currentPlayer);
     }
   }
 
-  playerChoice(players, currentPlayer) {
+  playerTurn(players, currentPlayer) {
     let copyOfPlayers = [...players];
     let askAction = prompt('What do you want to do ? Press [X] to attack or [Y] to use your power');
     while (askAction !== "X" && askAction !== "Y") {
       askAction = prompt('Looks like someone mispelled a command. Press [X] to attack or [Y] to use your power');
     }
+    let askVictim = prompt('Write down the name of the player you want to attack');
+    let victim = copyOfPlayers.filter(target => {
+      return target.name == askVictim ;
+    });
+    victim = victim[0];
+    console.log(`${currentPlayer.name} attacks ${victim.name}`);
     if (askAction === 'X') {
-      let askVictim = prompt('Write down the name of the player you want to attack');
-      let victim = copyOfPlayers.filter(target => {
-        return target.name == askVictim ;
-      })
-      console.log(`${currentPlayer} attacks ${victim}`);
-      currentPlayer.dealDamage(victim[0]);
+      currentPlayer.dealDamage(victim);
+      console.log(`He deals him ${currentPlayer.dmg} damages`);
     } else {
-      let askVictim = prompt('Write down the name of the player against who you want to use your power');
-      console.log('You choose to ');
+      console.log('Power action is still to be coded');
+      console.log(`He deals him ${currentPlayer.dmg} damages`);
     }
-    console.log(victim[0].hp);
-    console.log(victim[0].hp);
+    console.log(`${victim.name} has ${victim.hp} lifepoints left`);
+    victim.isDead();
+    console.log('');
   }
 
 
   startTurn(turnCount, players) {
-    console.log(`It is turn n°${turnCount + 1}`);
+    console.log(`>>>>>>>>>> It is turn n°${turnCount + 1} <<<<<<<<<<`);
     console.log('');
     this.playersPlaying(players);
   }

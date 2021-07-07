@@ -9,9 +9,6 @@ class Character {
 
   takeDamage(attacking) {
     this.hp = this.hp - attacking.dmg ;
-    if (this.hp <= 0) {
-      this.status = "looser" ;
-    } 
   }
 
   dealDamage(victim) {
@@ -22,7 +19,10 @@ class Character {
   }
 
   isDead () {
-    this.hp <= 0 ? console.log(true) : console.log(false);
+    if (this.hp <= 0) {
+      this.status = "looser" ;
+      console.log(`${this.name} is dead`)
+    } 
   }
 
 }

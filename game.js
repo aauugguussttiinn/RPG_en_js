@@ -15,6 +15,12 @@ class Game {
     return this.turnLeft
   }
 
+  alivePlayers(players) {
+    let stillPlaying = players.filter( player => {
+      player.status === "alive"
+    })
+    return stillPlaying
+  }
 
 }
 
@@ -45,6 +51,6 @@ console.log(newGame.players);
 newGame.newTurn();
 console.log('');
 
-const newTurn = new Turn(players, -1);
+const newTurn = new Turn(alivePlayers(players), -1);
 newTurn.startTurn(-1, players) ;
 
