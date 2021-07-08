@@ -5,8 +5,9 @@ class Monk extends Character {
   }
 
   heal(target) {
-    target.hp =target.hp + 8 ;
+    target.hp = target.hp + 8 ;
     this.mana = this.mana - 25 ;
+    console.log(`${this.target.name} gains 9 healthpoints`);
   }
 
 }

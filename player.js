@@ -37,4 +37,39 @@ class Character {
     }
   }
 
+  usesSuper(currentPlayer, victim) {
+    console.log('this line is inside usesSuper');
+    console.log(currentPlayer instanceof Assassin);
+    switch (currentPlayer) {
+      case (currentPlayer instanceof Assassin):
+        console.log('assassin');
+        currentPlayer.shadowHit(victim);
+        break;
+      case (currentPlayer instanceof Berzerker):
+        console.log('berzerker');
+        currentPlayer.Rage();
+        break;
+      case (currentPlayer instanceof Fighter):
+        console.log('fighter');
+        currentPlayer.darkVision(victim);
+        break;
+      case (currentPlayer instanceof Monk):
+        console.log('monk');
+        currentPlayer.heal(victim);
+        break;
+      case (currentPlayer instanceof Paladin):
+        console.log('paladin');
+        currentPlayer.healingLighting(victim);
+        break;
+      case (currentPlayer instanceof Wizard):
+        console.log('wizard');
+        currentPlayer.Fireball(victim);
+        break;
+      case (currentPlayer instanceof Axeman):
+        console.log('axeman');
+        currentPlayer.darkTemptation();
+        break;
+    }
+  }
+
 }

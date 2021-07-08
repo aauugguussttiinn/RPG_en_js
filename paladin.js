@@ -7,6 +7,7 @@ class Paladin extends Character {
   healingLighting(victim) {
     this.dmg = 4 ;
     victim.hp = victim.hp - this.dmg ;
+    console.log(`He deals him ${this.dmg} damages and gains 5 healthpoints`);
     this.dmg = 3 ;
     this.hp = this.hp + 5 ;
     this.mana = this.mana - 40 ;

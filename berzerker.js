@@ -7,6 +7,7 @@ class Berzerker extends Character {
   Rage() {
     this.dmg = this.dmg + 1 ;
     this.hp = this.hp - 1 ;
+    console.log(`${this.name} gains 1 damage and loses 1 healthpoints`);
   }
 
 }

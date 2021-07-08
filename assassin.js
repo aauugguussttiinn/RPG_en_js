@@ -6,6 +6,7 @@ class Assassin extends Character {
 
   shadowHit(victim) {
     this.mana = this.mana - 20 ;
+    console.log(`He deals him TOCODE damages`);
   }
 
 }

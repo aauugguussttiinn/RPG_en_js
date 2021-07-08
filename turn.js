@@ -43,6 +43,7 @@ class Turn {
       currentPlayer.dealDamage(victim);
     } else {
       if (currentPlayer.manaCheckForSuper() === true ) {
+        currentPlayer.usesSuper(currentPlayer, victim);
         console.log('Power action is still to be coded');
       } else {
         console.log('Sorry, not enough mana to use magic. You will simply attack your target');

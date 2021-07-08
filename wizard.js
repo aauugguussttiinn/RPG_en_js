@@ -7,6 +7,7 @@ class Wizard extends Character {
   Fireball(victim) {
     this.dmg = 7 ;
     victim.hp = victim.hp - this.dmg ;
+    console.log(`He deals him ${this.dmg} damages`);
     this.dmg = 2 ;
     this.mana = this.mana - 25 ;
   }

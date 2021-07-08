@@ -7,6 +7,7 @@ class Fighter extends Character {
   darkVision(victim) {
     this.dmg = 5 ;
     victim.hp = victim.hp - this.dmg ;
+    console.log(`He deals him ${this.dmg} damages`);
     this.dmg = 4 ;
     this.mana = this.mana - 20 ;
   }
