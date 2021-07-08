@@ -20,11 +20,10 @@ console.log(newGame.players);
 console.log('');
 
 
-while (newGame.turnLeft < 10) {
+while (newGame.newTurn(newGame.alivePlayers())) {
   startTurn.startTurn();
   startTurn.eachPlayersTurn(newGame.alivePlayers());
   startTurn.turnCount += 1 ;
-  newGame.turnLeft += 1 ;
 }
 
 

@@ -5,16 +5,18 @@ class Game {
   }
 
   newTurn(players) {
-    if (this.turnLeft < 10) {
-      this.turnLeft + 1
-      return this.turnLeft
-    } else {
-      console.log("Game Over")
+    if (players.length === 1 || this.turnLeft === 10) {
+      console.log("Game Over");
       players.map( player => {
         console.log(`${player.name} is a winner`);
       });
+      return false
+    } else {
+      this.turnLeft + 1 ;
+      return true
     }
   }
+
 
   alivePlayers() {
     let stillPlaying = this.players.filter(player => player.status === "playing")
