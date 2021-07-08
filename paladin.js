@@ -1,5 +1,5 @@
 class Paladin extends Character {
-  constructor(name, hp = 16, dmg = 3, mana = 160, requiredmana = 40, status, hasplayed) {
+  constructor(name, hp = 16, dmg = 3, mana = 50, requiredmana = 40, status, hasplayed) {
       super(hp, dmg, mana, requiredmana, status, hasplayed);
       this.name = name ;
   }

@@ -17,10 +17,20 @@ class Game {
     }
   }
 
-
   alivePlayers() {
     let stillPlaying = this.players.filter(player => player.status === "playing")
     return stillPlaying ;
+  }
+
+  watchStats(alivePlayers) {
+    alivePlayers.map(player => {
+      console.log(`Here are ${player.name} details`)
+      console.log(`Name : ${player.name}`);
+      console.log(`Status : ${player.status}`);
+      console.log(`Healthpoints : ${player.hp}`);
+      console.log(`Damage : ${player.dmg}`);
+      console.log('');
+    });
   }
 
 }
