@@ -40,7 +40,11 @@ class Turn {
     }
 
     if (askAction === 'X') {
-      currentPlayer.dealDamage(victim);
+      if (victim instanceof Fighter && victim.useddarkVision === true) {
+        victim.takeDamage(currentPlayer);
+      } else {
+        currentPlayer.dealDamage(victim);
+      }
     } else {
       if (currentPlayer.manaCheckForSuper() === true ) {
         currentPlayer.usesSuper(currentPlayer, victim);
@@ -80,6 +84,14 @@ class Turn {
   startTurn() {
     console.log(`>>>>>>>>>> It is turn n°${this.turnCount + 1} <<<<<<<<<<`);
     console.log('');
+  }
+
+  resetdarkVisionProtection(alivePlayers) {
+    alivePlayers.map(player => {
+      if (player instanceof Fighter) {
+        player.useddarkVision = false ;
+      }
+    });
   }
 
 

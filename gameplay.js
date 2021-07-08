@@ -24,6 +24,7 @@ while (newGame.newTurn(newGame.alivePlayers())) {
   startTurn.startTurn();
   startTurn.eachPlayersTurn(newGame.alivePlayers());
   startTurn.turnCount += 1 ;
+  startTurn.resetdarkVisionProtection(newGame.alivePlayers());
 }
 
 

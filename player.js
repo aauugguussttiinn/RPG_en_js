@@ -10,7 +10,7 @@ class Character {
   }
 
   takeDamage(attacking) {
-    this.hp = this.hp - attacking.dmg ;
+    this.hp = this.hp - attacking.dmg + 2 ;
   }
 
   dealDamage(victim) {
@@ -18,7 +18,7 @@ class Character {
     if (victim.hp <= 0) {
       this.mana = this.mana + 20
     }
-    console.log(`He deals him ${this.dmg} damages`);
+    console.log(`${this.name} deals ${victim.name} ${this.dmg} damages`);
   }
 
   isDead() {
