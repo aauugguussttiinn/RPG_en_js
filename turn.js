@@ -21,6 +21,7 @@ class Turn {
       players = newGame.alivePlayers();
       this.playerTurn(players, currentPlayer);
     }
+    players.map(player => player.hasplayed = false);
   }
 
   playerTurn(players, currentPlayer) {

@@ -13,13 +13,19 @@ let players = [Grace, Ulder, Moana, Draven, Carl];
 
 console.log(`Let's start!`);
 const newGame = new Game(0, players);
-const newTurn = new Turn(newGame.alivePlayers(), newGame.turnLeft);
+const startTurn = new Turn(newGame.alivePlayers(), newGame.turnLeft);
 
 console.log(`Here are our players :`);
 console.log(newGame.players);
 console.log('');
 
 
-newTurn.startTurn();
-newTurn.eachPlayersTurn(newGame.alivePlayers());
+while (newGame.turnLeft < 10) {
+  startTurn.startTurn();
+  startTurn.eachPlayersTurn(newGame.alivePlayers());
+  startTurn.turnCount += 1 ;
+  newGame.turnLeft += 1 ;
+}
+
+
 
