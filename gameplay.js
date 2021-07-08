@@ -25,6 +25,8 @@ while (newGame.newTurn(newGame.alivePlayers())) {
   startTurn.eachPlayersTurn(newGame.alivePlayers());
   startTurn.turnCount += 1 ;
   startTurn.resetdarkVisionProtection(newGame.alivePlayers());
+  console.log('Here are the players about to start the next turn :')
+  newGame.alivePlayersNames();
 }
 
 

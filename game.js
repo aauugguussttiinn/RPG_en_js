@@ -18,7 +18,7 @@ class Game {
   }
 
   alivePlayers() {
-    let stillPlaying = this.players.filter(player => player.status === "playing")
+    let stillPlaying = this.players.filter(player => player.status === "playing");
     return stillPlaying ;
   }
 
@@ -29,6 +29,13 @@ class Game {
     console.log(`Healthpoints : ${player.hp}`);
     console.log(`Damage : ${player.dmg}`);
     console.log('');
+  }
+
+  alivePlayersNames() {
+    let alivePlayersNames = this.players.filter(player => player.status === "playing");
+    alivePlayersNames = alivePlayersNames.map(player => {
+      console.log(`${player.name}`);
+    });
   }
 
 }
