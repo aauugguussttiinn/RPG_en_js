@@ -21,7 +21,6 @@ console.log('');
 
 
 while (newGame.newTurn(newGame.alivePlayers())) {
-  newGame.watchStats(newGame.alivePlayers());
   startTurn.startTurn();
   startTurn.eachPlayersTurn(newGame.alivePlayers());
   startTurn.turnCount += 1 ;

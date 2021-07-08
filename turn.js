@@ -72,11 +72,7 @@ class Turn {
         return player.name === askPlayer ;
       });
       selectedPlayer = selectedPlayer[0];
-      console.log(`Here are ${selectedPlayer.name} details`)
-      console.log(`Name : ${selectedPlayer.name}`);
-      console.log(`Status : ${selectedPlayer.status}`);
-      console.log(`Healthpoints : ${selectedPlayer.hp}`);
-      console.log(`Damage : ${selectedPlayer.dmg}`);
+      newGame.watchStats(selectedPlayer);
       seeDetails = prompt('Do you want to see a player details ? ? If so, enter [Y], else enter [N]');
     }
   }
