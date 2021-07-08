@@ -1,8 +1,9 @@
 class Character {
-  constructor(hp, dmg, mana, name, status = "playing", hasplayed = false) {
+  constructor(hp, dmg, mana, requiredmana, name, status = "playing", hasplayed = false) {
       this.hp = hp;
       this.dmg = dmg;
       this.mana = mana;
+      this.requiredmana = requiredmana;
       this.name = name;
       this.status = status;
       this.hasplayed = hasplayed;
@@ -25,6 +26,14 @@ class Character {
       this.status = "looser" ;
       console.log(`${this.name} is dead`)
       return true
+    }
+  }
+
+  manaCheckForSuper() {
+    if (this.mana >= this.requiredmana) {
+      return true ;
+    } else {
+      return false ;
     }
   }
 

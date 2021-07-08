@@ -25,32 +25,57 @@ class Turn {
   }
 
   playerTurn(players, currentPlayer) {
-    let askAction = prompt('What do you want to do ? Press [X] to attack or [Y] to use your power');
-    while (askAction !== "X" && askAction !== "Y") {
-      askAction = prompt('Looks like someone mispelled a command. Press [X] to attack or [Y] to use your power');
-    }
-    console.log(players);
-    let askVictim = prompt('Write down the name of the player you want to attack');
+    this.playersinfo(players, currentPlayer);
+
+    let askVictim = prompt('Write down the name of the player you want to target');
     let victim = players.filter(player => {
       return player.name === askVictim ;
     });
     victim = victim[0];
-    console.log(`${currentPlayer.name} attacks ${victim.name}`);
+    console.log(`${currentPlayer.name} targets ${victim.name}`);
+
+    let askAction = prompt('What do you want to do ? Press [X] to attack or [Y] to use your power');
+    while (askAction !== "X" && askAction !== "Y") {
+      askAction = prompt('Looks like someone mispelled a command. Press [X] to attack or [Y] to use your power');
+    }
 
     if (askAction === 'X') {
       currentPlayer.dealDamage(victim);
     } else {
-      console.log('Power action is still to be coded');
-      console.log(`He deals him ${currentPlayer.dmg} damages`);
+      if (currentPlayer.manaCheckForSuper() === true ) {
+        console.log('Power action is still to be coded');
+      } else {
+        console.log('Sorry, not enough mana to use magic. You will simply attack your target');
+        currentPlayer.dealDamage(victim);
+      }
     }
+
     console.log(`${victim.name} has ${victim.hp} lifepoints left`);
     victim.isDead();
     currentPlayer.hasplayed = true ;
     console.log('');
   }
   
-
-
+  playersinfo(players, currentPlayer) {
+    let seeDetails = prompt(`Hi ${currentPlayer.name} ! Do you want to see a player details ? ? If so, enter [Y], else enter [N]`);
+    while (seeDetails !== "N" && seeDetails !== "Y") {
+      seeDetails = prompt('Looks like someone mispelled a command. Just type [Y] to see a player details or [N] to skip');
+    }
+    while (seeDetails === "Y") {
+      console.log(players.map(player => player.name));
+      let askPlayer = prompt('Write down the name of the player you want to know more about');
+      let selectedPlayer = players.filter(player => {
+        return player.name === askPlayer ;
+      });
+      selectedPlayer = selectedPlayer[0];
+      console.log(`Here are ${selectedPlayer.name} details`)
+      console.log(`Name : ${selectedPlayer.name}`);
+      console.log(`Status : ${selectedPlayer.status}`);
+      console.log(`Healthpoints : ${selectedPlayer.hp}`);
+      console.log(`Damage : ${selectedPlayer.dmg}`);
+      seeDetails = prompt('Do you want to see a player details ? ? If so, enter [Y], else enter [N]');
+    }
+  }
 
   startTurn() {
     console.log(`>>>>>>>>>> It is turn n°${this.turnCount + 1} <<<<<<<<<<`);

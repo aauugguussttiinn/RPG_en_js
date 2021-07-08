@@ -1,6 +1,6 @@
 class Axeman extends Character {
-  constructor(name, hp = 9, dmg = 3, mana = 3, status, hasplayed) {
-      super(hp, dmg, mana, status, hasplayed);
+  constructor(name, hp = 9, dmg = 3, mana = 3, requiredmana = 3, status, hasplayed) {
+      super(hp, dmg, mana, requiredmana, status, hasplayed, requiredmana);
       this.name = name ;
   }
 
