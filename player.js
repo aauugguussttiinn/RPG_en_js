@@ -1,10 +1,11 @@
 class Character {
-  constructor(hp, dmg, mana, name, status = "playing") {
+  constructor(hp, dmg, mana, name, status = "playing", hasplayed = false) {
       this.hp = hp;
       this.dmg = dmg;
       this.mana = mana;
-      this.name = name
-      this.status = status
+      this.name = name;
+      this.status = status;
+      this.hasplayed = hasplayed;
   }
 
   takeDamage(attacking) {
@@ -16,13 +17,15 @@ class Character {
     if (victim.hp <= 0) {
       this.mana = this.mana + 20
     }
+    console.log(`He deals him ${this.dmg} damages`);
   }
 
-  isDead () {
+  isDead() {
     if (this.hp <= 0) {
       this.status = "looser" ;
       console.log(`${this.name} is dead`)
-    } 
+      return true
+    }
   }
 
 }

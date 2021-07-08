@@ -1,6 +1,6 @@
 class Fighter extends Character {
-  constructor(name, hp = 12, dmg = 4, mana = 40, status) {
-      super(hp, dmg, mana, status);
+  constructor(name, hp = 12, dmg = 4, mana = 40, status, hasplayed) {
+      super(hp, dmg, mana, status, hasplayed);
       this.name = name ;
   }
 
